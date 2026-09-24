@@ -6,126 +6,547 @@
 
 body {
     font-family: "Comic Sans MS", "Trebuchet MS", sans-serif;
-    background: linear-gradient(135deg, #fff1f8, #e8f7ff);
+
+    background:
+        radial-gradient(circle at 10% 20%, #ffe5ec 0 8%, transparent 9%),
+        radial-gradient(circle at 90% 15%, #d9f4ff 0 7%, transparent 8%),
+        radial-gradient(circle at 20% 90%, #fff0b8 0 8%, transparent 9%),
+        linear-gradient(135deg, #fff8fc, #eefaff);
+
     min-height: 100vh;
-    color: #333;
+    color: #444;
 }
+
+
+/* ENCABEZADO */
 
 header {
     text-align: center;
-    padding: 35px 20px;
-    background: linear-gradient(135deg, #ff8fab, #8ecae6);
+
+    padding: 35px 20px 40px;
+
+    background: linear-gradient(
+        135deg,
+        #ff8fab,
+        #cdb4db,
+        #90dbf4
+    );
+
     color: white;
-    border-radius: 0 0 35px 35px;
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+
+    border-radius: 0 0 45px 45px;
+
+    box-shadow:
+        0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.estrella {
+    font-size: 35px;
+
+    animation:
+        flotar 2s ease-in-out infinite;
 }
 
 header h1 {
-    font-size: 2.5rem;
-    margin-bottom: 10px;
-    text-shadow: 2px 3px 4px rgba(0, 0, 0, 0.2);
+    font-size: 2.7rem;
+
+    margin: 8px 0;
+
+    text-shadow:
+        3px 4px 0 rgba(0, 0, 0, 0.12);
 }
 
 header p {
     font-size: 1.2rem;
 }
 
+
+/* ANIMACIÓN */
+
+@keyframes flotar {
+
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-8px);
+    }
+}
+
+
+/* MENÚ */
+
 nav {
     display: flex;
+
     justify-content: center;
-    gap: 15px;
-    padding: 20px;
+
+    gap: 18px;
+
+    padding: 25px 15px;
+
     flex-wrap: wrap;
 }
 
 nav button {
     border: none;
-    padding: 13px 25px;
-    border-radius: 25px;
+
+    padding: 14px 28px;
+
+    border-radius: 30px;
+
     background: white;
+
     color: #ff6392;
-    font-size: 1rem;
+
+    font-family: inherit;
+
+    font-size: 1.1rem;
+
     font-weight: bold;
+
     cursor: pointer;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12);
-    transition: transform 0.2s, box-shadow 0.2s;
+
+    box-shadow:
+        0 5px 12px rgba(0, 0, 0, 0.12);
+
+    transition:
+        transform 0.2s,
+        box-shadow 0.2s;
 }
 
 nav button:hover {
-    transform: translateY(-3px) scale(1.04);
-    box-shadow: 0 7px 14px rgba(0, 0, 0, 0.18);
+    transform: translateY(-4px) scale(1.04);
+
+    box-shadow:
+        0 9px 18px rgba(0, 0, 0, 0.18);
+}
+
+
+/* CONTENEDORES */
+
+main {
+    width: 92%;
+
+    max-width: 950px;
+
+    margin: auto;
 }
 
 section {
-    width: 90%;
-    max-width: 900px;
-    margin: 25px auto;
+    background: rgba(255, 255, 255, 0.94);
+
     padding: 30px;
-    background: rgba(255, 255, 255, 0.9);
-    border-radius: 30px;
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+
+    margin-bottom: 30px;
+
+    border-radius: 35px;
+
+    box-shadow:
+        0 10px 30px rgba(0, 0, 0, 0.10);
+
+    border: 3px solid rgba(255, 255, 255, 0.8);
 }
 
 section h2 {
     text-align: center;
+
     color: #ff6392;
+
     font-size: 2rem;
-    margin-bottom: 20px;
+
+    margin-bottom: 8px;
 }
+
+.instruccion {
+    text-align: center;
+
+    color: #777;
+
+    margin-bottom: 25px;
+
+    font-size: 1.1rem;
+}
+
+
+/* NÚMEROS */
 
 #numbers {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
-    gap: 15px;
+
+    grid-template-columns:
+        repeat(auto-fit, minmax(75px, 1fr));
+
+    gap: 14px;
+
     margin-top: 20px;
 }
 
 #numbers button {
     border: none;
-    border-radius: 20px;
-    padding: 20px 10px;
-    font-size: 1.6rem;
+
+    border-radius: 22px;
+
+    padding: 18px 8px;
+
+    font-family: inherit;
+
+    font-size: 1.5rem;
+
     font-weight: bold;
-    background: linear-gradient(135deg, #ffd166, #ff9f1c);
+
     color: white;
+
+    background: linear-gradient(
+        135deg,
+        #ffb703,
+        #fb8500
+    );
+
     cursor: pointer;
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
-    transition: transform 0.2s, box-shadow 0.2s;
+
+    box-shadow:
+        0 6px 10px rgba(0, 0, 0, 0.14);
+
+    transition:
+        transform 0.2s,
+        box-shadow 0.2s;
 }
 
 #numbers button:hover {
-    transform: translateY(-5px) rotate(-2deg);
-    box-shadow: 0 9px 16px rgba(0, 0, 0, 0.2);
+    transform:
+        translateY(-6px)
+        rotate(-2deg)
+        scale(1.04);
+
+    box-shadow:
+        0 10px 17px rgba(0, 0, 0, 0.20);
 }
 
-button {
-    font-family: inherit;
+#numbers button:active {
+    transform: scale(0.94);
 }
+
+
+/* RESULTADO DEL NÚMERO */
+
+#resultadoNumero {
+    text-align: center;
+
+    margin: 30px auto 15px;
+
+    padding: 25px;
+
+    background: linear-gradient(
+        135deg,
+        #fff0f6,
+        #eaf9ff
+    );
+
+    border-radius: 28px;
+}
+
+.numeroGrande {
+    font-size: 4rem;
+
+    margin-bottom: 8px;
+}
+
+#resultadoNumero h3 {
+    color: #8a5ca8;
+
+    font-size: 2rem;
+
+    margin-bottom: 8px;
+}
+
+#resultadoNumero p {
+    color: #777;
+}
+
+
+/* BOTÓN DE VOZ */
+
+.botonVoz {
+    display: block;
+
+    margin: 20px auto 0;
+
+    border: none;
+
+    border-radius: 25px;
+
+    padding: 13px 28px;
+
+    background: #ff6392;
+
+    color: white;
+
+    font-family: inherit;
+
+    font-size: 1.1rem;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 5px 12px rgba(0, 0, 0, 0.15);
+
+    transition:
+        transform 0.2s;
+}
+
+.botonVoz:hover {
+    transform: scale(1.06);
+}
+
+
+/* JUEGO */
 
 #game {
     text-align: center;
 }
 
-#game button {
-    border: none;
-    border-radius: 18px;
-    padding: 15px 25px;
-    margin: 8px;
-    background: #90dbf4;
-    color: white;
-    font-size: 1.1rem;
-    font-weight: bold;
-    cursor: pointer;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.12);
-    transition: transform 0.2s;
+.pregunta {
+    margin-bottom: 20px;
 }
 
-#game button:hover {
+.pregunta span {
+    font-size: 2rem;
+}
+
+.pregunta h3 {
+    color: #8a5ca8;
+
+    font-size: 1.5rem;
+
+    margin: 5px 0 15px;
+}
+
+#numeroPregunta {
+    display: inline-flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    width: 110px;
+
+    height: 110px;
+
+    border-radius: 50%;
+
+    background: linear-gradient(
+        135deg,
+        #90dbf4,
+        #48cae4
+    );
+
+    color: white;
+
+    font-size: 3rem;
+
+    font-weight: bold;
+
+    box-shadow:
+        0 8px 15px rgba(0, 0, 0, 0.15);
+}
+
+
+/* OPCIONES */
+
+#opciones {
+    display: grid;
+
+    grid-template-columns:
+        repeat(auto-fit, minmax(100px, 1fr));
+
+    gap: 15px;
+
+    margin: 25px auto;
+
+    max-width: 600px;
+}
+
+#opciones button {
+    border: none;
+
+    border-radius: 20px;
+
+    padding: 16px;
+
+    background: #cdb4db;
+
+    color: white;
+
+    font-family: inherit;
+
+    font-size: 1.2rem;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 5px 10px rgba(0, 0, 0, 0.12);
+
+    transition:
+        transform 0.2s;
+}
+
+#opciones button:hover {
+    transform:
+        translateY(-4px)
+        scale(1.04);
+}
+
+#mensajeJuego {
+    font-size: 1.2rem;
+
+    font-weight: bold;
+
+    color: #ff6392;
+
+    min-height: 30px;
+}
+
+
+/* BOTÓN NUEVA PREGUNTA */
+
+#nuevaPregunta {
+    border: none;
+
+    border-radius: 25px;
+
+    padding: 13px 25px;
+
+    background: #90be6d;
+
+    color: white;
+
+    font-family: inherit;
+
+    font-size: 1rem;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    margin-top: 10px;
+
+    box-shadow:
+        0 5px 10px rgba(0, 0, 0, 0.12);
+}
+
+#nuevaPregunta:hover {
     transform: scale(1.05);
 }
 
+
+/* ESTADÍSTICAS */
+
+.estadisticas {
+    display: flex;
+
+    justify-content: center;
+
+    gap: 25px;
+
+    margin-top: 30px;
+
+    flex-wrap: wrap;
+}
+
+.estadistica {
+    min-width: 130px;
+
+    padding: 18px;
+
+    border-radius: 22px;
+
+    text-align: center;
+
+    background: #fff3b0;
+
+    box-shadow:
+        0 5px 12px rgba(0, 0, 0, 0.10);
+}
+
+.estadistica span {
+    display: block;
+
+    font-size: 1.7rem;
+}
+
+.estadistica strong {
+    display: block;
+
+    font-size: 1.8rem;
+
+    color: #ff8c00;
+}
+
+.estadistica small {
+    color: #777;
+}
+
+
+/* OCULTAR SECCIÓN */
+
+.oculto {
+    display: none;
+}
+
+
+/* PIE DE PÁGINA */
+
 footer {
     text-align: center;
-    padding: 25px;
-    color: #777;
+
+    padding: 30px;
+
+    color: #888;
+
+    font-size: 1rem;
+}
+
+
+/* CELULAR */
+
+@media (max-width: 600px) {
+
+    header h1 {
+        font-size: 2rem;
+    }
+
+    header p {
+        font-size: 1rem;
+    }
+
+    section {
+        padding: 20px;
+    }
+
+    #numbers {
+        grid-template-columns:
+            repeat(4, 1fr);
+
+        gap: 10px;
+    }
+
+    #numbers button {
+        padding: 14px 5px;
+
+        font-size: 1.2rem;
+    }
+
+    #numeroPregunta {
+        width: 90px;
+
+        height: 90px;
+
+        font-size: 2.5rem;
+    }
 }
