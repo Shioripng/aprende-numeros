@@ -1,0 +1,62 @@
+<div class="app">
+
+  <header>
+    <h1>🌈 Aprende los números</h1>
+    <p>¡Vamos a aprender jugando! 🔢⭐</p>
+  </header>
+
+  <div class="menu">
+    <button onclick="mostrarSeccion('aprender')">
+      📚 Aprender
+    </button>
+
+    <button onclick="mostrarSeccion('jugar')">
+      🎯 Jugar
+    </button>
+  </div>
+
+  <section id="aprender" class="seccion">
+
+    <h2>🔢 Elige un número</h2>
+
+    <p>Haz clic en un número del 1 al 20.</p>
+
+    <div id="numeros" class="numeros"></div>
+
+    <div id="numeroSeleccionado" class="numero-grande">
+      👆 Escoge un número
+    </div>
+
+    <button class="escuchar" onclick="escucharNumero()">
+      🔊 Escuchar
+    </button>
+
+  </section>
+
+  <section id="jugar" class="seccion oculta">
+
+    <h2>🎯 ¿Cuál es el número?</h2>
+
+    <p>Escoge la respuesta correcta.</p>
+
+    <div id="pregunta" class="pregunta">
+      ¡Presiona "Nueva pregunta"!
+    </div>
+
+    <div id="opciones" class="opciones"></div>
+
+    <div id="mensaje" class="mensaje"></div>
+
+    <button class="nueva" onclick="nuevaPregunta()">
+      🔄 Nueva pregunta
+    </button>
+
+    <div class="puntuacion">
+      ⭐ Correctas: <span id="correctas">0</span>
+      <br>
+      📝 Intentos: <span id="intentos">0</span>
+    </div>
+
+  </section>
+
+</div>

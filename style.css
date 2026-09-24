@@ -1,0 +1,239 @@
+body {
+  margin: 0;
+  min-height: 100vh;
+
+  background: linear-gradient(
+    135deg,
+    #ffb6d9,
+    #a8e6ff,
+    #fff1a8
+  );
+
+  font-family: Arial, sans-serif;
+  text-align: center;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.app {
+  background: white;
+  width: 90%;
+  max-width: 900px;
+  padding: 30px;
+  border-radius: 35px;
+
+  box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+}
+
+header h1 {
+  color: #ff5790;
+  font-size: 42px;
+  margin-bottom: 5px;
+}
+
+header p {
+  font-size: 20px;
+  color: #555;
+}
+
+.menu {
+  margin: 25px 0;
+}
+
+.menu button {
+  border: none;
+  padding: 15px 25px;
+  margin: 8px;
+  border-radius: 20px;
+
+  font-size: 19px;
+  font-weight: bold;
+
+  color: white;
+  background: #6c63ff;
+
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.menu button:hover {
+  transform: scale(1.08);
+  background: #ff6b9d;
+}
+
+.seccion {
+  margin-top: 20px;
+}
+
+.oculta {
+  display: none;
+}
+
+h2 {
+  color: #6c63ff;
+  font-size: 30px;
+}
+
+.numeros {
+  display: grid;
+
+  grid-template-columns:
+    repeat(5, 1fr);
+
+  gap: 10px;
+
+  margin: 25px 0;
+}
+
+.numeros button {
+  border: none;
+
+  padding: 18px 5px;
+
+  border-radius: 15px;
+
+  background: #6c63ff;
+  color: white;
+
+  font-size: 22px;
+  font-weight: bold;
+
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.numeros button:hover {
+  transform: scale(1.1);
+  background: #ff5790;
+}
+
+.numero-grande {
+  background: #fff1a8;
+
+  padding: 25px;
+
+  border-radius: 25px;
+
+  margin: 20px;
+
+  font-size: 40px;
+
+  font-weight: bold;
+
+  color: #ff7b00;
+}
+
+.escuchar,
+.nueva {
+  border: none;
+
+  padding: 14px 25px;
+
+  border-radius: 18px;
+
+  font-size: 18px;
+
+  font-weight: bold;
+
+  color: white;
+
+  cursor: pointer;
+
+  margin: 10px;
+}
+
+.escuchar {
+  background: #00bfa6;
+}
+
+.nueva {
+  background: #ff9f1c;
+}
+
+.pregunta {
+  background: #e8e4ff;
+
+  padding: 25px;
+
+  border-radius: 25px;
+
+  font-size: 35px;
+
+  font-weight: bold;
+
+  color: #5148c7;
+
+  margin: 25px 0;
+}
+
+.opciones {
+  display: grid;
+
+  grid-template-columns:
+    repeat(2, 1fr);
+
+  gap: 15px;
+
+  max-width: 500px;
+
+  margin: auto;
+}
+
+.opcion {
+  border: none;
+
+  padding: 20px;
+
+  border-radius: 20px;
+
+  background: #74c0fc;
+
+  color: white;
+
+  font-size: 30px;
+
+  font-weight: bold;
+
+  cursor: pointer;
+}
+
+.opcion:hover {
+  transform: scale(1.05);
+  background: #4dabf7;
+}
+
+.opcion.correcta {
+  background: #51cf66;
+}
+
+.opcion.incorrecta {
+  background: #ff6b6b;
+}
+
+.mensaje {
+  min-height: 40px;
+
+  margin: 20px;
+
+  font-size: 25px;
+
+  font-weight: bold;
+}
+
+.puntuacion {
+  margin-top: 25px;
+
+  background: #fff1a8;
+
+  padding: 20px;
+
+  border-radius: 20px;
+
+  font-size: 22px;
+
+  font-weight: bold;
+
+  color: #ff8c00;
+}
