@@ -1,253 +1,286 @@
-let numeroActual = 0;
+// ========================================
+// APRENDE LOS NÚMEROS DEL 1 AL 20
+// ========================================
+
+
+// Números escritos en español
+
+const nombresNumeros = [
+    "",
+    "Uno",
+    "Dos",
+    "Tres",
+    "Cuatro",
+    "Cinco",
+    "Seis",
+    "Siete",
+    "Ocho",
+    "Nueve",
+    "Diez",
+    "Once",
+    "Doce",
+    "Trece",
+    "Catorce",
+    "Quince",
+    "Dieciséis",
+    "Diecisiete",
+    "Dieciocho",
+    "Diecinueve",
+    "Veinte"
+];
+
+
+// ========================================
+// SELECCIONAR ELEMENTOS
+// ========================================
+
+const numbersContainer =
+    document.getElementById("numbers");
+
+const resultadoNumero =
+    document.getElementById("resultadoNumero");
+
+const gameSection =
+    document.getElementById("jugar");
+
+const aprenderSection =
+    document.getElementById("aprender");
+
+const numeroPregunta =
+    document.getElementById("numeroPregunta");
+
+const opcionesContainer =
+    document.getElementById("opciones");
+
+const mensajeJuego =
+    document.getElementById("mensajeJuego");
+
+const correctasElement =
+    document.getElementById("correctas");
+
+const intentosElement =
+    document.getElementById("intentos");
+
+
+// ========================================
+// VARIABLES DEL JUEGO
+// ========================================
+
+let numeroSeleccionado = 1;
+
+let respuestaCorrecta = 1;
 
 let correctas = 0;
 
 let intentos = 0;
 
 
-// ===============================
-// CREAR NÚMEROS DEL 1 AL 20
-// ===============================
+// ========================================
+// CREAR BOTONES DEL 1 AL 20
+// ========================================
 
-const contenedor = document.getElementById("numeros");
+for (let numero = 1; numero <= 20; numero++) {
 
-for (let i = 1; i <= 20; i++) {
-
-  const boton = document.createElement("button");
-
-  boton.textContent = i;
-
-  boton.onclick = function() {
-    mostrarNumero(i);
-  };
-
-  contenedor.appendChild(boton);
-}
-
-
-// ===============================
-// NÚMERO EN PALABRAS
-// ===============================
-
-const nombres = [
-  "",
-  "uno",
-  "dos",
-  "tres",
-  "cuatro",
-  "cinco",
-  "seis",
-  "siete",
-  "ocho",
-  "nueve",
-  "diez",
-  "once",
-  "doce",
-  "trece",
-  "catorce",
-  "quince",
-  "dieciséis",
-  "diecisiete",
-  "dieciocho",
-  "diecinueve",
-  "veinte"
-];
-
-function numeroEnPalabras(numero) {
-  return nombres[numero];
-}
-
-
-// ===============================
-// MOSTRAR NÚMERO
-// ===============================
-
-function mostrarNumero(numero) {
-
-  numeroActual = numero;
-
-  document.getElementById("numeroSeleccionado").innerHTML =
-    "🔢 " + numero +
-    "<br>" +
-    "<span style='font-size:28px'>" +
-    numeroEnPalabras(numero) +
-    "</span>";
-
-  hablar(numero);
-}
-
-
-// ===============================
-// HABLAR
-// ===============================
-
-function hablar(numero) {
-
-  if (!("speechSynthesis" in window)) {
-    return;
-  }
-
-  speechSynthesis.cancel();
-
-  const voz =
-    new SpeechSynthesisUtterance(
-      "El número es " +
-      numero +
-      ". " +
-      numeroEnPalabras(numero)
-    );
-
-  voz.lang = "es-ES";
-
-  speechSynthesis.speak(voz);
-}
-
-
-// ===============================
-// ESCUCHAR NÚMERO
-// ===============================
-
-function escucharNumero() {
-
-  if (numeroActual === 0) {
-
-    alert("Primero escoge un número 😊");
-
-    return;
-  }
-
-  hablar(numeroActual);
-}
-
-
-// ===============================
-// CAMBIAR SECCIÓN
-// ===============================
-
-function mostrarSeccion(seccion) {
-
-  document.getElementById("aprender")
-    .classList.add("oculta");
-
-  document.getElementById("jugar")
-    .classList.add("oculta");
-
-  document.getElementById(seccion)
-    .classList.remove("oculta");
-}
-
-
-// ===============================
-// NUEVA PREGUNTA
-// ===============================
-
-function nuevaPregunta() {
-
-  numeroActual =
-    Math.floor(Math.random() * 20) + 1;
-
-  document.getElementById("pregunta").textContent =
-    "🎯 ¿Cuál es el número " +
-    numeroEnPalabras(numeroActual) +
-    "?";
-
-  document.getElementById("mensaje").textContent = "";
-
-  crearOpciones();
-}
-
-
-// ===============================
-// CREAR LAS 4 OPCIONES
-// ===============================
-
-function crearOpciones() {
-
-  const contenedor =
-    document.getElementById("opciones");
-
-  contenedor.innerHTML = "";
-
-  let opciones = [numeroActual];
-
-  while (opciones.length < 4) {
-
-    let numero =
-      Math.floor(Math.random() * 20) + 1;
-
-    if (!opciones.includes(numero)) {
-      opciones.push(numero);
-    }
-  }
-
-  opciones.sort(() => Math.random() - 0.5);
-
-  opciones.forEach(numero => {
-
-    const boton =
-      document.createElement("button");
+    const boton = document.createElement("button");
 
     boton.textContent = numero;
 
-    boton.className = "opcion";
+    boton.addEventListener("click", function () {
 
-    boton.onclick = function() {
-      comprobarRespuesta(numero, boton);
-    };
+        mostrarNumero(numero);
 
-    contenedor.appendChild(boton);
-  });
-}
-
-
-// ===============================
-// COMPROBAR RESPUESTA
-// ===============================
-
-function comprobarRespuesta(numero, boton) {
-
-  intentos++;
-
-  document.getElementById("intentos")
-    .textContent = intentos;
-
-  if (numero === numeroActual) {
-
-    correctas++;
-
-    document.getElementById("correctas")
-      .textContent = correctas;
-
-    boton.classList.add("correcta");
-
-    document.getElementById("mensaje").textContent =
-      "🎉 ¡CORRECTO! ⭐ ¡Muy bien!";
-
-    const botones =
-      document.querySelectorAll(".opcion");
-
-    botones.forEach(b => {
-      b.disabled = true;
     });
 
-    hablar(numero);
-
-  } else {
-
-    boton.classList.add("incorrecta");
-
-    document.getElementById("mensaje").textContent =
-      "💪 ¡Casi! Intenta otra vez.";
-
-    setTimeout(() => {
-      boton.classList.remove("incorrecta");
-    }, 700);
-  }
+    numbersContainer.appendChild(boton);
 }
 
 
-// ===============================
-// PRIMERA PREGUNTA
-// ===============================
+// ========================================
+// MOSTRAR NÚMERO
+// ========================================
 
-nuevaPregunta();
+function mostrarNumero(numero) {
+
+    numeroSeleccionado = numero;
+
+    resultadoNumero.innerHTML = `
+        <div class="numeroGrande">🔢 ${numero}</div>
+
+        <h3>${nombresNumeros[numero]}</h3>
+
+        <p>
+            El número ${numero} se escribe:
+            <strong>${nombresNumeros[numero]}</strong>
+        </p>
+    `;
+
+    hablar(nombresNumeros[numero]);
+}
+
+
+// ========================================
+// HABLAR EN ESPAÑOL
+// ========================================
+
+function hablar(texto) {
+
+    if ("speechSynthesis" in window) {
+
+        window.speechSynthesis.cancel();
+
+        const mensaje =
+            new SpeechSynthesisUtterance(texto);
+
+        mensaje.lang = "es-ES";
+
+        mensaje.rate = 0.8;
+
+        mensaje.pitch = 1.1;
+
+        window.speechSynthesis.speak(mensaje);
+    }
+}
+
+
+// ========================================
+// BOTÓN ESCUCHAR
+// ========================================
+
+function escucharNumero() {
+
+    hablar(nombresNumeros[numeroSeleccionado]);
+}
+
+
+// ========================================
+// CAMBIAR ENTRE APRENDER Y JUGAR
+// ========================================
+
+function mostrarSeccion(seccion) {
+
+    if (seccion === "aprender") {
+
+        aprenderSection.classList.remove("oculto");
+
+        gameSection.classList.add("oculto");
+
+    } else {
+
+        aprenderSection.classList.add("oculto");
+
+        gameSection.classList.remove("oculto");
+
+        nuevaPregunta();
+    }
+}
+
+
+// ========================================
+// CREAR NUEVA PREGUNTA
+// ========================================
+
+function nuevaPregunta() {
+
+    respuestaCorrecta =
+        Math.floor(Math.random() * 20) + 1;
+
+    numeroPregunta.textContent =
+        respuestaCorrecta;
+
+    mensajeJuego.textContent =
+        "¡Escoge la respuesta correcta! 🌟";
+
+    crearOpciones();
+}
+
+
+// ========================================
+// CREAR OPCIONES
+// ========================================
+
+function crearOpciones() {
+
+    opcionesContainer.innerHTML = "";
+
+    let opciones = [respuestaCorrecta];
+
+
+    // Agregar números diferentes
+
+    while (opciones.length < 4) {
+
+        const numeroAleatorio =
+            Math.floor(Math.random() * 20) + 1;
+
+        if (!opciones.includes(numeroAleatorio)) {
+
+            opciones.push(numeroAleatorio);
+        }
+    }
+
+
+    // Mezclar opciones
+
+    opciones.sort(() => Math.random() - 0.5);
+
+
+    // Crear botones
+
+    opciones.forEach(numero => {
+
+        const boton =
+            document.createElement("button");
+
+        boton.textContent = numero;
+
+        boton.addEventListener(
+            "click",
+            function () {
+
+                comprobarRespuesta(numero);
+
+            }
+        );
+
+        opcionesContainer.appendChild(boton);
+    });
+}
+
+
+// ========================================
+// COMPROBAR RESPUESTA
+// ========================================
+
+function comprobarRespuesta(numero) {
+
+    intentos++;
+
+    intentosElement.textContent =
+        intentos;
+
+
+    if (numero === respuestaCorrecta) {
+
+        correctas++;
+
+        correctasElement.textContent =
+            correctas;
+
+        mensajeJuego.textContent =
+            "🎉 ¡Muy bien! ¡Respuesta correcta! ⭐";
+
+        hablar("Muy bien");
+
+    } else {
+
+        mensajeJuego.textContent =
+            "😊 Casi. ¡Inténtalo otra vez!";
+    }
+}
+
+
+// ========================================
+// INICIAR CON EL NÚMERO 1
+// ========================================
+
+mostrarNumero(1);
