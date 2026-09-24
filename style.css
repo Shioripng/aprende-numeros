@@ -1,239 +1,131 @@
-body {
-  margin: 0;
-  min-height: 100vh;
-
-  background: linear-gradient(
-    135deg,
-    #ffb6d9,
-    #a8e6ff,
-    #fff1a8
-  );
-
-  font-family: Arial, sans-serif;
-  text-align: center;
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
-.app {
-  background: white;
-  width: 90%;
-  max-width: 900px;
-  padding: 30px;
-  border-radius: 35px;
+body {
+    font-family: "Comic Sans MS", "Trebuchet MS", sans-serif;
+    background: linear-gradient(135deg, #fff1f8, #e8f7ff);
+    min-height: 100vh;
+    color: #333;
+}
 
-  box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+header {
+    text-align: center;
+    padding: 35px 20px;
+    background: linear-gradient(135deg, #ff8fab, #8ecae6);
+    color: white;
+    border-radius: 0 0 35px 35px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
 }
 
 header h1 {
-  color: #ff5790;
-  font-size: 42px;
-  margin-bottom: 5px;
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    text-shadow: 2px 3px 4px rgba(0, 0, 0, 0.2);
 }
 
 header p {
-  font-size: 20px;
-  color: #555;
+    font-size: 1.2rem;
 }
 
-.menu {
-  margin: 25px 0;
+nav {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    padding: 20px;
+    flex-wrap: wrap;
 }
 
-.menu button {
-  border: none;
-  padding: 15px 25px;
-  margin: 8px;
-  border-radius: 20px;
-
-  font-size: 19px;
-  font-weight: bold;
-
-  color: white;
-  background: #6c63ff;
-
-  cursor: pointer;
-  transition: 0.2s;
+nav button {
+    border: none;
+    padding: 13px 25px;
+    border-radius: 25px;
+    background: white;
+    color: #ff6392;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12);
+    transition: transform 0.2s, box-shadow 0.2s;
 }
 
-.menu button:hover {
-  transform: scale(1.08);
-  background: #ff6b9d;
+nav button:hover {
+    transform: translateY(-3px) scale(1.04);
+    box-shadow: 0 7px 14px rgba(0, 0, 0, 0.18);
 }
 
-.seccion {
-  margin-top: 20px;
+section {
+    width: 90%;
+    max-width: 900px;
+    margin: 25px auto;
+    padding: 30px;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 30px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
 }
 
-.oculta {
-  display: none;
+section h2 {
+    text-align: center;
+    color: #ff6392;
+    font-size: 2rem;
+    margin-bottom: 20px;
 }
 
-h2 {
-  color: #6c63ff;
-  font-size: 30px;
+#numbers {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+    gap: 15px;
+    margin-top: 20px;
 }
 
-.numeros {
-  display: grid;
-
-  grid-template-columns:
-    repeat(5, 1fr);
-
-  gap: 10px;
-
-  margin: 25px 0;
+#numbers button {
+    border: none;
+    border-radius: 20px;
+    padding: 20px 10px;
+    font-size: 1.6rem;
+    font-weight: bold;
+    background: linear-gradient(135deg, #ffd166, #ff9f1c);
+    color: white;
+    cursor: pointer;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
+    transition: transform 0.2s, box-shadow 0.2s;
 }
 
-.numeros button {
-  border: none;
-
-  padding: 18px 5px;
-
-  border-radius: 15px;
-
-  background: #6c63ff;
-  color: white;
-
-  font-size: 22px;
-  font-weight: bold;
-
-  cursor: pointer;
-  transition: 0.2s;
+#numbers button:hover {
+    transform: translateY(-5px) rotate(-2deg);
+    box-shadow: 0 9px 16px rgba(0, 0, 0, 0.2);
 }
 
-.numeros button:hover {
-  transform: scale(1.1);
-  background: #ff5790;
+button {
+    font-family: inherit;
 }
 
-.numero-grande {
-  background: #fff1a8;
-
-  padding: 25px;
-
-  border-radius: 25px;
-
-  margin: 20px;
-
-  font-size: 40px;
-
-  font-weight: bold;
-
-  color: #ff7b00;
+#game {
+    text-align: center;
 }
 
-.escuchar,
-.nueva {
-  border: none;
-
-  padding: 14px 25px;
-
-  border-radius: 18px;
-
-  font-size: 18px;
-
-  font-weight: bold;
-
-  color: white;
-
-  cursor: pointer;
-
-  margin: 10px;
+#game button {
+    border: none;
+    border-radius: 18px;
+    padding: 15px 25px;
+    margin: 8px;
+    background: #90dbf4;
+    color: white;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.12);
+    transition: transform 0.2s;
 }
 
-.escuchar {
-  background: #00bfa6;
+#game button:hover {
+    transform: scale(1.05);
 }
 
-.nueva {
-  background: #ff9f1c;
-}
-
-.pregunta {
-  background: #e8e4ff;
-
-  padding: 25px;
-
-  border-radius: 25px;
-
-  font-size: 35px;
-
-  font-weight: bold;
-
-  color: #5148c7;
-
-  margin: 25px 0;
-}
-
-.opciones {
-  display: grid;
-
-  grid-template-columns:
-    repeat(2, 1fr);
-
-  gap: 15px;
-
-  max-width: 500px;
-
-  margin: auto;
-}
-
-.opcion {
-  border: none;
-
-  padding: 20px;
-
-  border-radius: 20px;
-
-  background: #74c0fc;
-
-  color: white;
-
-  font-size: 30px;
-
-  font-weight: bold;
-
-  cursor: pointer;
-}
-
-.opcion:hover {
-  transform: scale(1.05);
-  background: #4dabf7;
-}
-
-.opcion.correcta {
-  background: #51cf66;
-}
-
-.opcion.incorrecta {
-  background: #ff6b6b;
-}
-
-.mensaje {
-  min-height: 40px;
-
-  margin: 20px;
-
-  font-size: 25px;
-
-  font-weight: bold;
-}
-
-.puntuacion {
-  margin-top: 25px;
-
-  background: #fff1a8;
-
-  padding: 20px;
-
-  border-radius: 20px;
-
-  font-size: 22px;
-
-  font-weight: bold;
-
-  color: #ff8c00;
+footer {
+    text-align: center;
+    padding: 25px;
+    color: #777;
 }
