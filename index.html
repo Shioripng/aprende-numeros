@@ -1,66 +1,127 @@
-<div class="app">
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <header>
-    <h1>🌈 Aprende los números</h1>
-    <p>¡Vamos a aprender jugando! 🔢⭐</p>
-  </header>
+    <title>Aprende los números</title>
 
-  <div class="menu">
-    <button onclick="mostrarSeccion('aprender')">
-      📚 Aprender
-    </button>
+    <link rel="stylesheet" href="style.css">
+</head>
 
-    <button onclick="mostrarSeccion('jugar')">
-      🎯 Jugar
-    </button>
-  </div>
+<body>
 
-  <section id="aprender" class="seccion">
+    <header>
+        <div class="estrella">⭐</div>
 
-    <h2>🔢 Elige un número</h2>
+        <h1>🌈 Aprende los números</h1>
 
-    <p>Haz clic en un número del 1 al 20.</p>
+        <p>¡Vamos a aprender jugando del 1 al 20! 🎈</p>
+    </header>
 
-    <div id="numeros" class="numeros"></div>
 
-    <div id="numeroSeleccionado" class="numero-grande">
-      👆 Escoge un número
-    </div>
+    <nav>
+        <button onclick="mostrarSeccion('aprender')">
+            📚 Aprender
+        </button>
 
-    <button class="escuchar" onclick="escucharNumero()">
-      🔊 Escuchar
-    </button>
+        <button onclick="mostrarSeccion('jugar')">
+            🎮 Jugar
+        </button>
+    </nav>
 
-  </section>
 
-  <section id="jugar" class="seccion oculta">
+    <main>
 
-    <h2>🎯 ¿Cuál es el número?</h2>
+        <!-- SECCIÓN APRENDER -->
+        <section id="aprender">
 
-    <p>Escoge la respuesta correcta.</p>
+            <h2>🔢 Elige un número</h2>
 
-    <div id="pregunta" class="pregunta">
-      ¡Presiona "Nueva pregunta"!
-    </div>
+            <p class="instruccion">
+                Haz clic en un número del 1 al 20
+            </p>
 
-    <div id="opciones" class="opciones"></div>
+            <div id="numbers"></div>
 
-    <div id="mensaje" class="mensaje"></div>
+            <div id="resultadoNumero">
+                <div class="numeroGrande">👆</div>
 
-    <button class="nueva" onclick="nuevaPregunta()">
-      🔄 Nueva pregunta
-    </button>
+                <h3>¡Elige un número!</h3>
 
-    <div class="puntuacion">
-      ⭐ Correctas: <span id="correctas">0</span>
-      <br>
-      📝 Intentos: <span id="intentos">0</span>
-    </div>
+                <p>
+                    Cuando elijas uno, podrás ver cómo se escribe
+                    y escucharlo.
+                </p>
+            </div>
 
-  </section>
+            <button id="escuchar" onclick="escucharNumero()" class="botonVoz">
+                🔊 Escuchar
+            </button>
 
-</div> 
-<script src="script.js"></script>
+        </section>
+
+
+        <!-- SECCIÓN JUGAR -->
+        <section id="jugar" class="oculto">
+
+            <h2>🎮 ¡Vamos a jugar!</h2>
+
+            <p class="instruccion">
+                Escoge la respuesta correcta.
+            </p>
+
+            <div id="game">
+
+                <div class="pregunta">
+                    <span>🤔</span>
+                    <h3>¿Cuál es el número?</h3>
+
+                    <div id="numeroPregunta">
+                        1
+                    </div>
+                </div>
+
+                <div id="opciones"></div>
+
+                <p id="mensajeJuego">
+                    ¡Tú puedes! 🌟
+                </p>
+
+                <button id="nuevaPregunta" onclick="nuevaPregunta()">
+                    🔄 Nueva pregunta
+                </button>
+
+            </div>
+
+
+            <div class="estadisticas">
+
+                <div class="estadistica">
+                    <span>⭐</span>
+                    <strong id="correctas">0</strong>
+                    <small>Correctas</small>
+                </div>
+
+                <div class="estadistica">
+                    <span>🎯</span>
+                    <strong id="intentos">0</strong>
+                    <small>Intentos</small>
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <footer>
+        <p>🌟 ¡Aprender es divertido! 🌟</p>
+    </footer>
+
+
+    <script src="script.js"></script>
 
 </body>
 </html>
